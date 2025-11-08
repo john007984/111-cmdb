@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>111 CMDB — POC Dashboard</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    body { font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; margin: 18px; color:#111 }
+    h1 { font-size:20px; margin-bottom:6px }
+    p.lead { margin-top:0; color:#444; margin-bottom:18px }
+    table { width:100%; border-collapse:collapse; margin-top:12px }
+    th,td { padding:8px 10px; border:1px solid #e6e6e6; text-align:left; font-size:13px }
+    th { background:#f6f6f8; color:#222; font-weight:600 }
+    tr:nth-child(even) td { background:#fbfbfd }
+    .small { font-size:12px; color:#666 }
+    #status { margin-top:8px; font-size:13px }
+    .ok { color:green }
+    .warn { color:darkorange }
+    .err { color:crimson }
+    .center { text-align:center }
+    #controls { margin:10px 0 16px 0; display:flex; gap:10px; align-items:center }
+    button { padding:8px 12px; border-radius:6px; border:1px solid #d0d0d3; background:white; cursor:pointer }
+    button:active { transform: translateY(1px) }
+  </style>
+</head>
+<body>
+  <h1>111 CMDB — POC Dashboard</h1>
+  <p class="lead">This reads your `mongodb_sources.json` (in repo <code>111-cmdb/repos/</code>), fetches each repo's <code>terraform/hostsfile/hosts</code>, parses hostnames and tries to resolve IPs.</p>
+
+  <div id="controls">
+    <button id="reloadBtn">Reload data</button>
+    <label class="small">Try Local DNS helper:
+      <input id="useLocal" type="checkbox" />
+    </label>
+    <span class="small">Local helper (optional): <code>http://localhost:9000/resolve?name=HOST</code></span>
+  </div>
+
+  <div id="status" class="small">Status: <span id="statText">idle</span></div>
+
+  <table id="cmdbTable" aria-live="polite">
+    <thead>
+      <tr>
+        <th>FQDN</th>
+        <th>DB Name</th>
+        <th>ENV</th>
+        <th>Platform</th>
+        <th>DC</th>
+        <th>Zone</th>
+        <th>Node</th>
+        <th>IP</th>
+      </tr>
+    </thead>
+    <tbody id="tbody"></tbody>
+  </table>
+
+  <script src="./parser.js"></script>
+</body>
+</html>
