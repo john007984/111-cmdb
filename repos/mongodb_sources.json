@@ -1,5 +1,5 @@
 {
-  "111-ch2-g-pr": "https://github.com/john007984/111-ch2-g-pr/blob/main/terraform/hostsfile/hosts",
-  "111-as-a-pr": "https://github.com/john007984/111-as-a-pr/blob/main/terraform/hostsfile/hosts",
-  "111-ho-fz1-pr": "https://github.com/john007984/111-ho-fz1-pr/blob/main/terraform/hostsfile/hosts"
+  "111-ch2-g-pr": "https://raw.githubusercontent.com/john007984/111-ch2-g-pr/main",
+  "111-as-a-pr": "https://raw.githubusercontent.com/john007984/111-as-a-pr/main",
+  "111-ho-fz1-pr": "https://raw.githubusercontent.com/john007984/111-ho-fz1-pr/main"
 }
